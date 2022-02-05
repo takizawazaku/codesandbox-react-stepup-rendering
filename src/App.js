@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import "./styles.css";
 import { ChildArea } from "./ChildArea";
 
@@ -14,6 +14,10 @@ export default function App() {
   // アロー関数は毎回新しい関数を生成していると判断される
   // const onClickClose = () => setOpen(false);
   const onClickClose = useCallback(() => setOpen(false), [setOpen]);
+
+  // 変数のメモ化
+  const temp = useMemo(() => 1 + 3, []);
+  console.log(temp)
 
   return (
     <div className="App">
