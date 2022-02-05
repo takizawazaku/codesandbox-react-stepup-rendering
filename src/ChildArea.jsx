@@ -1,10 +1,12 @@
+import { memo } from "react";
 const style = {
   width: "100%",
   height: "200px",
   backgroundColor: "khaki"
 };
 
-export const ChildArea = (props) => {
+// memoを使うことでpropsが変更されない限り再レンダリングされない
+export const ChildArea = memo((props) => {
   const { open } = props;
   console.log("ChildAreaがレンダリングされた!!");
 
@@ -22,4 +24,4 @@ export const ChildArea = (props) => {
       ) : null}
     </>
   );
-};
+});
